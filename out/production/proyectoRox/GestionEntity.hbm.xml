@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="BD.GestionEntity" table="Gestion" schema="Almacen">
+        <id name="id">
+            <column name="ID" sql-type="int"/>
+        </id>
+        <property name="cproveedor">
+            <column name="Cproveedor" sql-type="varchar(6)" length="6"/>
+        </property>
+        <property name="cpieza">
+            <column name="Cpieza" sql-type="varchar(6)" length="6"/>
+        </property>
+        <property name="cproyecto">
+            <column name="Cproyecto" sql-type="varchar(6)" length="6"/>
+        </property>
+        <property name="cantidad">
+            <column name="Cantidad" sql-type="int"/>
+        </property>
+        <one-to-one name="pieza" class="BD.PiezasEntity"/>
+        <one-to-one name="proveedor" class="BD.ProveedoresEntity"/>
+        <one-to-one name="proyecto" class="BD.ProyectosEntity"/>
+    </class>
+</hibernate-mapping>
