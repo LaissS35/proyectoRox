@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+  <session-factory>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+  <property name="connection.url">jdbc:mysql://localhost:3306/Almacen</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.password">soylalecheN7</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+  <property name="current_session_context_class">thread</property>
+    <property name="hibernate.ejb.metamodel.population">disabled</property>
+
+    <mapping class="BD.PiezasEntity"/>
+    <mapping resource="PiezasEntity.hbm.xml"/>
+    <mapping class="BD.ProveedoresEntity"/>
+    <mapping resource="ProveedoresEntity.hbm.xml"/>
+    <mapping class="BD.ProyectosEntity"/>
+    <mapping resource="ProyectosEntity.hbm.xml"/>
+    <mapping class="BD.GestionEntity"/>
+    <mapping resource="GestionEntity.hbm.xml"/>
+
+
+  </session-factory>
+</hibernate-configuration>

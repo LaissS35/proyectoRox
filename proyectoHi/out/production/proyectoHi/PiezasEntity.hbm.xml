@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="BD.PiezasEntity" table="Piezas" schema="Almacen">
+        <id name="codigo">
+            <column name="Codigo" sql-type="varchar(6)" length="6"/>
+        </id>
+        <property name="nombre">
+            <column name="Nombre" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="precio">
+            <column name="Precio" sql-type="decimal(65)" precision="65"/>
+        </property>
+        <property name="descripcion">
+            <column name="Descripcion" sql-type="varchar(445)" length="445" not-null="true"/>
+        </property>
+        <one-to-one name="gestion" class="BD.GestionEntity"/>
+    </class>
+</hibernate-mapping>
