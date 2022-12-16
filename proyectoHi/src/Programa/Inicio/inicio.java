@@ -66,15 +66,16 @@ public class inicio extends JFrame {
 
 
         });
+
         ayudaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                //mostrar un bocata dando datos del proyecto, base de datos etc...
-
+                JFrame frame = new ayuda();//la otra ventana tiene extend jframe
+                frame.setSize(700,600);
+                frame.setVisible(true);
+                dispose();
             }
         });
-
     }
     private void ventanaProy() {
         JFrame frame = new MenuProyecto();//la otra ventana tiene extend jframe
@@ -90,11 +91,6 @@ public class inicio extends JFrame {
     }
 
 
-    //creacion de la ventana
-    public static void main(String[] args) {
-
-
-    }
     private void ventanaGestion() {
         JFrame frame = new Gestion();//la otra ventana tiene extend jframe
         frame.setSize(700,600);
