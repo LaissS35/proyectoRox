@@ -24,6 +24,7 @@ public class Piezas  {
         }
 
     }//funciona
+    /*
     public static void meterPiezas(){
         HibernateUtil.buildSessionFactory();
 
@@ -49,7 +50,7 @@ public class Piezas  {
         System.out.println("fin");
 
 
-    } //funciona otra vez
+    } //funciona otra vez*/
     public static void modificarPiezas(){
         HibernateUtil.buildSessionFactory();
 

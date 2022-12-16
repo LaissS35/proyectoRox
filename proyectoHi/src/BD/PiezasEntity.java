@@ -1,8 +1,6 @@
 package BD;
 
 import javax.persistence.*;
-import java.awt.*;
-import java.math.BigInteger;
 
 @Entity
 @Table(name = "Piezas", schema = "Almacen", catalog = "")
@@ -16,7 +14,7 @@ public class PiezasEntity {
     private String nombre;
     @Basic
     @Column(name = "Precio", nullable = false, precision = 0)
-    private BigInteger precio;
+    private Float precio;
     @Basic
     @Column(name = "Descripcion", nullable = true, length = 445)
     private String descripcion;
@@ -39,11 +37,11 @@ public class PiezasEntity {
         this.nombre = nombre;
     }
 
-    public BigInteger getPrecio() {
+    public Float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(BigInteger precio) {
+    public void setPrecio(Float precio) {
         this.precio = precio;
     }
 

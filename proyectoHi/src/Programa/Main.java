@@ -23,10 +23,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         //FALTA CONTROL DE ERRORES
-        //MENU PIEZAS FUNCIONA
 
 
-        JFrame frame = new GestionAnyadir();
+
+        JFrame frame = new inicio();
         frame.setSize(700,600);
         frame.setVisible(true);
 
@@ -34,20 +34,5 @@ public class Main {
 
 
     }
-   
-
-
-
-    public static void listaGestion(){
-        HibernateUtil.buildSessionFactory();
-        Query query = HibernateUtil.getCurrentSession().createQuery("from GestionEntity ");
-        List<GestionEntity> gestion = query.list();
-
-
-        for (GestionEntity gestions: gestion){
-
-            System.out.println("Nº proyecto: "+gestions.getProyecto().getCodigo()+"\nNº proveedor: "+gestions.getProveedor().getCodigo()+"\nNº pieza: "+gestions.getPieza().getCodigo()+"\n cantidad: "+gestions.getCantidad()+"\n Id: "+gestions.getId());//en piezas,provedor y proyecto podemos sacar todos los valores de ese en concreto que tenemos registrado en la tabla, hay que especificar el dato
-        }
-    } //enlace con gestión correcta
 
 }

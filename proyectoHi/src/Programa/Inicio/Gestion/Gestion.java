@@ -25,19 +25,21 @@ public class Gestion extends JFrame {
         suministroPorProveedorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 JFrame frame = new GestionSuministroProvedor();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
                 frame.setVisible(true);
-                dispose();//para cerrar la ventana principal tras pulsar el boton
+                dispose();//para cerrar la ventana principal tras pulsar el boton*/
             }
         });
         suministroPorPiezasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 JFrame frame = new GestionPiezaSuministrada();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
                 frame.setVisible(true);
-                dispose();//para cerrar la ventana principal tras pulsar el boton
+                dispose();//para cerrar la ventana principal tras pulsar el boton*/
             }
         });
         estadisticasButton.addActionListener(new ActionListener() {
@@ -47,6 +49,17 @@ public class Gestion extends JFrame {
                 frame.setSize(700,600);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
+            }
+        });
+
+        suministroPorProveedorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //ver lista
+                JFrame frame = new listaGestion();//la otra ventana tiene extend jframe
+                frame.setSize(700,600);
+                frame.setVisible(true);
+                dispose();
             }
         });
     }

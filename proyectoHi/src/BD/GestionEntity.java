@@ -8,7 +8,7 @@ public class GestionEntity {
 
     @Basic
     @Column(name = "Cantidad", nullable = false)
-    private int cantidad;
+    private Float cantidad;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID", nullable = false)
@@ -25,11 +25,11 @@ public class GestionEntity {
 
 
 
-    public int getCantidad() {
+    public Float getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Float cantidad) {
         this.cantidad = cantidad;
     }
 

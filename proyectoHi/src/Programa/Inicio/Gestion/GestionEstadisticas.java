@@ -38,25 +38,27 @@ public class GestionEstadisticas  extends JFrame{
         nºDePiezasYButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 JFrame frame = new TablaPiezasProveProyec();//la otra ventana tiene extend jframe
                 Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();//coger el tamañno de la pantalla
                 int H = pantalla.height;
                 int W = pantalla.width;
                 frame.setSize(H,W);
                 frame.setVisible(true);
-                dispose();//para cerrar la ventana principal tras pulsar el boton
+                dispose();//para cerrar la ventana principal tras pulsar el boton*/
             }
         });
         nºDePiezasYButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 JFrame frame = new TablaPiezasporProve();//la otra ventana tiene extend jframe
                 Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();//coger el tamañno de la pantalla
                 int H = pantalla.height;
                 int W = pantalla.width;
                 frame.setSize(H,W);
                 frame.setVisible(true);
-                dispose();//para cerrar la ventana principal tras pulsar el boton
+                dispose();//para cerrar la ventana principal tras pulsar el boton*/
             }
         });
     }

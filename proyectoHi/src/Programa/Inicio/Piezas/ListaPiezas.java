@@ -3,6 +3,7 @@ package Programa.Inicio.Piezas;
 import BD.PiezasEntity;
 import Programa.Clases.Piezas;
 import Programa.HibernateUtil;
+import Programa.Inicio.Gestion.Gestion;
 import org.hibernate.Query;
 
 import javax.swing.*;

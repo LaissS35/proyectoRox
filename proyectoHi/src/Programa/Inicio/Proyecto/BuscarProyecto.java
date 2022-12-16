@@ -1,6 +1,5 @@
 package Programa.Inicio.Proyecto;
 
-import BD.PiezasEntity;
 import BD.ProyectosEntity;
 import Programa.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -9,9 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BuscarProyecto extends JFrame {
     private JTextField textoCodigo;
@@ -23,6 +22,7 @@ public class BuscarProyecto extends JFrame {
     private JButton BuscarNombre;
     private JButton buscarCiudad;
     private JList listaProyecto;
+    private JButton limpiarButton;
 
     public BuscarProyecto(){
         DefaultListModel<String> modelo = new DefaultListModel<>();
@@ -51,7 +51,7 @@ public class BuscarProyecto extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProyectosEntity c WHERE c.codigo = :nombre");
-                        query.setParameter("nombre",textoCodigo.getText());
+                        query.setParameter("nombre",textoCodigo.getText().toUpperCase());
                         ProyectosEntity pieza = (ProyectosEntity) query.uniqueResult();
 
                         listaProyecto.setModel(modelo);
@@ -91,7 +91,7 @@ public class BuscarProyecto extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProyectosEntity c WHERE c.nombre = :nombre");
-                        query.setParameter("nombre",textoNombre.getText());
+                        query.setParameter("nombre",textoNombre.getText().toUpperCase());
                         ProyectosEntity pieza = (ProyectosEntity) query.uniqueResult();
 
                         listaProyecto.setModel(modelo);
@@ -130,12 +130,17 @@ public class BuscarProyecto extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProyectosEntity c WHERE c.ubicacion = :nombre");
-                        query.setParameter("nombre",textoCiudad.getText());
-                        ProyectosEntity pieza = (ProyectosEntity) query.uniqueResult();
+                        query.setParameter("nombre",textoCiudad.getText().toUpperCase());
+                        //ProyectosEntity pieza = (ProyectosEntity) query.uniqueResult();
+                        ArrayList<ProyectosEntity>pieza =(ArrayList<ProyectosEntity>)query.list();
 
                         listaProyecto.setModel(modelo);
+
                         try {
-                            modelo.addElement("Codigo: " + pieza.getCodigo() + " Nombre: " + pieza.getNombre() + " Ubicación: " + pieza.getUbicacion() + " Descripción: " + pieza.getDescripcion());
+                            for (ProyectosEntity piezas : pieza) {
+                                modelo.addElement("Codigo: " + piezas.getCodigo() + " Nombre: " + piezas.getNombre() + " Ubicación: " + piezas.getUbicacion() + " Descripción: " + piezas.getDescripcion());
+                            }
+                           // modelo.addElement("Codigo: " + pieza.getCodigo() + " Nombre: " + pieza.getNombre() + " Ubicación: " + pieza.getUbicacion() + " Descripción: " + pieza.getDescripcion());
                         } catch (Exception ex) {
                             System.out.println("no se pudo encontrar");
                             JOptionPane.showMessageDialog(null, "no se encontro nada", "error inesperado", JOptionPane.ERROR_MESSAGE);
@@ -152,6 +157,14 @@ public class BuscarProyecto extends JFrame {
                     JOptionPane.showMessageDialog(null, "debes meter minimo 1 caracter", "error inesperado", JOptionPane.ERROR_MESSAGE);
                 }
 
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textoNombre.setText("");
+                textoCodigo.setText("");
+                textoCiudad.setText("");
             }
         });
     }

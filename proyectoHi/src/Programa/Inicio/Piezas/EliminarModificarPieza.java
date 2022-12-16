@@ -7,7 +7,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -20,6 +19,7 @@ public class EliminarModificarPieza extends JFrame {
     private JButton modificarButton;
     private JPanel panel;
     private JButton atrasButton;
+    private JButton limpiarButton;
 
     public EliminarModificarPieza (){
         //guardar todos los codigos en el combo box
@@ -72,6 +72,7 @@ public class EliminarModificarPieza extends JFrame {
                     sesion.close();
 
                     HibernateUtil.closeSessionFactory();
+                    JOptionPane.showMessageDialog(null, "se elimino correctamente", "error inesperado", JOptionPane.INFORMATION_MESSAGE);
                 } catch (HibernateException ex) {
                     System.out.println("no se pudo eliminar");
                     JOptionPane.showMessageDialog(null, "error al eliminar una pieza", "error inesperado", JOptionPane.ERROR_MESSAGE);
@@ -85,7 +86,7 @@ public class EliminarModificarPieza extends JFrame {
                 int posicion =comboBoxPiezas.getSelectedIndex();
 
 
-                if(textonuevaDescripcion.getText().length()>=1 && textonuevoNombre.getText().length()>=1){
+                if((textonuevaDescripcion.getText().length()>=1 && textonuevaDescripcion.getText().length()<=445) && (textonuevoNombre.getText().length()>=1 && textonuevoNombre.getText().length()<=45)){
 
                     try {
                         HibernateUtil.buildSessionFactory();
@@ -94,8 +95,8 @@ public class EliminarModificarPieza extends JFrame {
                         query.setParameter("barra",comboBoxPiezas.getItemAt(posicion));
                         PiezasEntity piezas = (PiezasEntity) query.uniqueResult();
 
-                        piezas.setNombre(textonuevoNombre.getText());
-                        piezas.setDescripcion(textonuevaDescripcion.getText());//nuevo valor a meter
+                        piezas.setNombre(textonuevoNombre.getText().toUpperCase());
+                        piezas.setDescripcion(textonuevaDescripcion.getText().toUpperCase());//nuevo valor a meter
 
                         Session sesion = HibernateUtil.getCurrentSession();
                         sesion.beginTransaction();
@@ -104,17 +105,25 @@ public class EliminarModificarPieza extends JFrame {
                         sesion.close();
 
                         HibernateUtil.closeSessionFactory();
+                        JOptionPane.showMessageDialog(null, "modificado con exito", "error inesperado", JOptionPane.INFORMATION_MESSAGE);
                     } catch (HibernateException ex) {
-                        System.out.println("no se pudo actualizar");
-                        JOptionPane.showMessageDialog(null, "no se pudo actualizar la pieza", "error inesperado", JOptionPane.ERROR_MESSAGE);
+                        System.out.println("error,no se pudo actualizar");
+                        JOptionPane.showMessageDialog(null, "erro,no se pudo actualizar la pieza", "error inesperado", JOptionPane.ERROR_MESSAGE);
 
                     }
 
                 }else{
                     System.out.println("no se pudo actualizar");
-                    JOptionPane.showMessageDialog(null, "¿estan todos los campos llenos?", "error inesperado", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "no debes dejar campos vacios ni exceder su maximo", "error inesperado", JOptionPane.ERROR_MESSAGE);
 
                 }
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textonuevoNombre.setText("");
+                textonuevaDescripcion.setText("");
             }
         });
     }

@@ -1,6 +1,5 @@
 package Programa.Inicio.Proyecto;
 
-import BD.PiezasEntity;
 import BD.ProyectosEntity;
 import Programa.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -9,7 +8,6 @@ import org.hibernate.Session;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigInteger;
 
 public class CrearProy extends JFrame {
     private JTextField textoNombre;
@@ -19,6 +17,7 @@ public class CrearProy extends JFrame {
     private JPanel panel;
     private JButton crearButton;
     private JButton atrasButton;
+    private JButton limpiarButton;
 
     public CrearProy(){
         setContentPane(panel);
@@ -41,10 +40,10 @@ public class CrearProy extends JFrame {
                         HibernateUtil.buildSessionFactory();
 
                         ProyectosEntity piezasM = new ProyectosEntity();
-                        piezasM.setCodigo(textoCodigo.getText());
-                        piezasM.setNombre(textoNombre.getText());
-                        piezasM.setDescripcion(textoDescri.getText());
-                        piezasM.setUbicacion(textoUbi.getText());
+                        piezasM.setCodigo(textoCodigo.getText().toUpperCase());
+                        piezasM.setNombre(textoNombre.getText().toUpperCase());
+                        piezasM.setDescripcion(textoDescri.getText().toUpperCase());
+                        piezasM.setUbicacion(textoUbi.getText().toUpperCase());
 
                         Session sesion = HibernateUtil.getCurrentSession();
                         sesion.beginTransaction();
@@ -64,6 +63,15 @@ public class CrearProy extends JFrame {
                     JOptionPane.showMessageDialog(null, "¿estan todos los campos llenos?", "error inesperado", JOptionPane.ERROR_MESSAGE);
 
                 }
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textoCodigo.setText("");
+                textoNombre.setText("");
+                textoUbi.setText("");
+                textoDescri.setText("");
             }
         });
     }

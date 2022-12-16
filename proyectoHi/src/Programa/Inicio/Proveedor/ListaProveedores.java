@@ -46,7 +46,7 @@ public class ListaProveedores extends JFrame {
             }
 
             private void menuProve() {
-                JFrame frame = new GestionProve();//la otra ventana tiene extend jframe
+                JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();//coger el tamañno de la pantalla
                 frame.setSize(700,600);
                 frame.setVisible(true);

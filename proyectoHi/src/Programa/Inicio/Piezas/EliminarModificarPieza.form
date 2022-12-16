@@ -18,10 +18,10 @@
       </component>
       <component id="55729" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Nombre:"/>
+          <text value="Nombre(max.45):"/>
         </properties>
       </component>
       <component id="18d7d" class="javax.swing.JLabel">
@@ -29,7 +29,7 @@
           <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Descripción:"/>
+          <text value="Descripción(max.445):"/>
         </properties>
       </component>
       <component id="157cc" class="javax.swing.JComboBox" binding="comboBoxPiezas">
@@ -76,6 +76,14 @@
         </constraints>
         <properties>
           <text value="Atras"/>
+        </properties>
+      </component>
+      <component id="8b4a0" class="javax.swing.JButton" binding="limpiarButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Limpiar"/>
         </properties>
       </component>
     </children>

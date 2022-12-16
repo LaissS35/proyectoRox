@@ -1,11 +1,10 @@
 package Programa.Inicio.Proyecto;
 
 import Programa.Inicio.Piezas.MenuPiezas;
-import Programa.Inicio.Proveedor.GestionProve;
+import Programa.Inicio.Proveedor.menuProves;
 import Programa.Inicio.inicio;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -70,7 +69,7 @@ public class MenuProyecto extends JFrame{
         menúProveedoresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new GestionProve();//la otra ventana tiene extend jframe
+                JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton

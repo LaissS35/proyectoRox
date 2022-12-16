@@ -1,6 +1,7 @@
 package Programa.Inicio.Proveedor;
 
 import BD.ProveedoresEntity;
+import BD.ProyectosEntity;
 import Programa.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -10,11 +11,12 @@ import org.hibernate.SessionFactory;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ConsultaProveedor extends JFrame {
     private JPanel panel;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField textoNombre;
+    private JTextField textoDire;
     private JPanel ListaDatosProveedor;
     private JButton buscarCodigo;
     private JList listaProveedores;
@@ -22,10 +24,12 @@ public class ConsultaProveedor extends JFrame {
     private JButton buscarNOmbre;
     private JButton buscarDir;
     private JTextField textoCodigo;
+    private JButton limpiarButton;
 
     public  ConsultaProveedor(){
-        DefaultListModel<String> modelo = new DefaultListModel<>();
+
         setContentPane(panel);
+        DefaultListModel<String> modelo = new DefaultListModel<>();
         atrasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,8 +37,7 @@ public class ConsultaProveedor extends JFrame {
             }
 
             private void menuProve() {
-                JFrame frame = new GestionProve();//la otra ventana tiene extend jframe
-
+                JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
@@ -43,7 +46,7 @@ public class ConsultaProveedor extends JFrame {
         buscarCodigo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textoCodigo.getText().length()>=1){
+                if(textoCodigo.getText().length()>=1 && textoCodigo.getText().length()<=6){
 
                     try {
                         modelo.removeAllElements();
@@ -55,7 +58,7 @@ public class ConsultaProveedor extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProveedoresEntity c WHERE c.codigo = :nombre");
-                        query.setParameter("nombre",textoCodigo.getText());
+                        query.setParameter("nombre",textoCodigo.getText().toUpperCase());
                         ProveedoresEntity pieza = (ProveedoresEntity) query.uniqueResult();
 
                         listaProveedores.setModel(modelo);
@@ -84,7 +87,7 @@ public class ConsultaProveedor extends JFrame {
         buscarNOmbre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textField1.getText().length()>=1){
+                if(textoNombre.getText().length()>=1 && textoNombre.getText().length()<=45){
 
                     try {
                         modelo.removeAllElements();
@@ -96,12 +99,15 @@ public class ConsultaProveedor extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProveedoresEntity c WHERE c.nombre = :nombre");
-                        query.setParameter("nombre",textField1.getText());
-                        ProveedoresEntity pieza = (ProveedoresEntity) query.uniqueResult();
+                        query.setParameter("nombre", textoNombre.getText().toUpperCase());
+                        ArrayList<ProveedoresEntity> pieza =(ArrayList<ProveedoresEntity>)query.list();
 
                         listaProveedores.setModel(modelo);
+
                         try {
-                            modelo.addElement("Codigo: " + pieza.getCodigo() + " Nombre: " + pieza.getNombre() + " Apellido: " + pieza.getApellidos() + " Direccion: " + pieza.getDireccionPostal());
+                            for (ProveedoresEntity piezas : pieza) {
+                                modelo.addElement("Codigo: " + piezas.getCodigo() + " Nombre: " + piezas.getNombre() + " Apellido: " + piezas.getApellidos() + " Direccion: " + piezas.getDireccionPostal());
+                            }
                         } catch (Exception ex) {
                             System.out.println("no se pudo encontrar");
                             JOptionPane.showMessageDialog(null, "no se encontro ", "error inesperado", JOptionPane.ERROR_MESSAGE);
@@ -123,7 +129,7 @@ public class ConsultaProveedor extends JFrame {
         buscarDir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textField2.getText().length()>=1){
+                if(textoDire.getText().length()>=1 && textoDire.getText().length()<=455){
 
                     try {
                         modelo.removeAllElements();
@@ -135,12 +141,16 @@ public class ConsultaProveedor extends JFrame {
 
                         Query query = HibernateUtil.getCurrentSession().
                                 createQuery("FROM ProveedoresEntity c WHERE c.direccionPostal = :nombre");
-                        query.setParameter("nombre",textField2.getText());
-                        ProveedoresEntity pieza = (ProveedoresEntity) query.uniqueResult();
+                        query.setParameter("nombre", textoDire.getText().toUpperCase());
+                        ArrayList<ProveedoresEntity> pieza =(ArrayList<ProveedoresEntity>)query.list();
 
                         listaProveedores.setModel(modelo);
+
                         try {
-                            modelo.addElement("Codigo: " + pieza.getCodigo() + " Nombre: " + pieza.getNombre() + " Apellido: " + pieza.getApellidos() + " Direccion: " + pieza.getDireccionPostal());
+                            for (ProveedoresEntity piezas : pieza) {
+                                modelo.addElement("Codigo: " + piezas.getCodigo() + " Nombre: " + piezas.getNombre() + " Apellido: " + piezas.getApellidos() + " Direccion: " + piezas.getDireccionPostal());
+                            }
+
                         } catch (Exception ex) {
                             System.out.println("no se pudo encontrar");
                             JOptionPane.showMessageDialog(null, "no se encontro ", "error inesperado", JOptionPane.ERROR_MESSAGE);
@@ -151,12 +161,21 @@ public class ConsultaProveedor extends JFrame {
 
                         HibernateUtil.closeSessionFactory();
                     } catch (HibernateException ex) {
+                       // ex.printStackTrace();
                         System.out.println("no se pudo encontrar");
                         JOptionPane.showMessageDialog(null, "error al buscar ", "error inesperado", JOptionPane.ERROR_MESSAGE);
                     }}else{
                     JOptionPane.showMessageDialog(null, "debes meter minimo 1 caracter", "error inesperado", JOptionPane.ERROR_MESSAGE);
                 }
 
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textoCodigo.setText("");
+                textoDire.setText("");
+                textoNombre.setText("");
             }
         });
     }

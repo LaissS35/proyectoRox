@@ -1,8 +1,8 @@
 package Programa.Inicio;
 
 import Programa.Inicio.Gestion.Gestion;
-import Programa.Inicio.Proveedor.GestionProve;
 import Programa.Inicio.Piezas.MenuPiezas;
+import Programa.Inicio.Proveedor.menuProves;
 import Programa.Inicio.Proyecto.MenuProyecto;
 
 import javax.swing.*;
@@ -103,7 +103,7 @@ public class inicio extends JFrame {
 
     }
     private void ventanaProve() {
-        JFrame frame = new GestionProve();//la otra ventana tiene extend jframe
+        JFrame frame = new menuProves();//la otra ventana tiene extend jframe
         frame.setSize(700,600);
         frame.setVisible(true);
         dispose();//para cerrar la ventana principal tras pulsar el boton

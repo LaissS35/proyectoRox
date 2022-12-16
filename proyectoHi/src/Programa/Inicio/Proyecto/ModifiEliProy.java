@@ -1,6 +1,5 @@
 package Programa.Inicio.Proyecto;
 
-import BD.PiezasEntity;
 import BD.ProyectosEntity;
 import Programa.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -20,6 +19,7 @@ public class ModifiEliProy extends JFrame {
     private JTextField textoUbi;
     private JPanel panel;
     private JButton atrasButton;
+    private JButton limpiarButton;
 
     public ModifiEliProy(){
         setContentPane(panel);
@@ -89,8 +89,8 @@ public class ModifiEliProy extends JFrame {
                         query.setParameter("barra",comboBox1.getItemAt(posicion));
                         ProyectosEntity piezas = (ProyectosEntity) query.uniqueResult();
 
-                        piezas.setNombre(textoNombre.getText());
-                        piezas.setUbicacion(textoUbi.getText());//nuevo valor a meter
+                        piezas.setNombre(textoNombre.getText().toUpperCase());
+                        piezas.setUbicacion(textoUbi.getText().toUpperCase());//nuevo valor a meter
 
                         Session sesion = HibernateUtil.getCurrentSession();
                         sesion.beginTransaction();
@@ -112,6 +112,13 @@ public class ModifiEliProy extends JFrame {
                     JOptionPane.showMessageDialog(null, "¿estan todos los campos llenos?", "error inesperado", JOptionPane.ERROR_MESSAGE);
 
                 }
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textoNombre.setText("");
+                textoUbi.setText("");
             }
         });
     }
