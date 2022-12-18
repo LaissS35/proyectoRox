@@ -1,7 +1,7 @@
 package Programa.Inicio.Piezas;
 
 import BD.PiezasEntity;
-import Programa.Clases.Piezas;
+
 import Programa.HibernateUtil;
 import Programa.Inicio.Gestion.Gestion;
 import org.hibernate.Query;
@@ -34,6 +34,7 @@ public class ListaPiezas extends JFrame {
 
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
             System.out.println("no se pudo actualizar");
             JOptionPane.showMessageDialog(null, "error al ver la lista de piezas", "error inesperado", JOptionPane.ERROR_MESSAGE);
 
@@ -45,6 +46,7 @@ public class ListaPiezas extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuPiezas();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }

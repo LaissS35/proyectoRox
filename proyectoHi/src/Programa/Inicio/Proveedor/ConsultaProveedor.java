@@ -39,6 +39,7 @@ public class ConsultaProveedor extends JFrame {
             private void menuProve() {
                 JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }

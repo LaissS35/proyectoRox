@@ -204,6 +204,7 @@ public class GestionAnyadir extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new Gestion();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }

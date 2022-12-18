@@ -44,6 +44,7 @@ public class EliminarModificarPieza extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuPiezas();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -72,7 +73,7 @@ public class EliminarModificarPieza extends JFrame {
                     sesion.close();
 
                     HibernateUtil.closeSessionFactory();
-                    JOptionPane.showMessageDialog(null, "se elimino correctamente", "error inesperado", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "se elimino correctamente", "todo correcto", JOptionPane.INFORMATION_MESSAGE);
                 } catch (HibernateException ex) {
                     System.out.println("no se pudo eliminar");
                     JOptionPane.showMessageDialog(null, "error al eliminar una pieza", "error inesperado", JOptionPane.ERROR_MESSAGE);
@@ -105,7 +106,7 @@ public class EliminarModificarPieza extends JFrame {
                         sesion.close();
 
                         HibernateUtil.closeSessionFactory();
-                        JOptionPane.showMessageDialog(null, "modificado con exito", "error inesperado", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "modificado con exito", "todo correctoo", JOptionPane.INFORMATION_MESSAGE);
                     } catch (HibernateException ex) {
                         System.out.println("error,no se pudo actualizar");
                         JOptionPane.showMessageDialog(null, "erro,no se pudo actualizar la pieza", "error inesperado", JOptionPane.ERROR_MESSAGE);

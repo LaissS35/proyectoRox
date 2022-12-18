@@ -47,8 +47,9 @@ public class ListaProveedores extends JFrame {
 
             private void menuProve() {
                 JFrame frame = new menuProves();//la otra ventana tiene extend jframe
-                Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();//coger el tamañno de la pantalla
+
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }

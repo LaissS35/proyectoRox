@@ -33,6 +33,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -42,6 +43,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuProyecto();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -51,6 +53,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new inicio();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -60,6 +63,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new EliminarModificarPieza();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -69,6 +73,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new CRearPieza();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -78,6 +83,8 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new ListaPiezas();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -87,6 +94,7 @@ public class MenuPiezas extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new BuscarPieza();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }

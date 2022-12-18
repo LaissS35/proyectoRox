@@ -44,6 +44,7 @@ public class ListaProy extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuProyecto();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }

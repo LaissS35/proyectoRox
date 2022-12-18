@@ -45,6 +45,7 @@ public class modificarEliProves extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new menuProves();
                 frame.setSize(700, 600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
 
@@ -117,7 +118,7 @@ public class modificarEliProves extends JFrame {
                         sesion.close();
 
                         HibernateUtil.closeSessionFactory();
-                        JOptionPane.showMessageDialog(null, "modificado con exito", "error inesperado", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "modificado con exito", "todo correcto", JOptionPane.INFORMATION_MESSAGE);
                     } catch (HibernateException ex) {
                         System.out.println("error,no se pudo actualizar");
                         JOptionPane.showMessageDialog(null, "erro,no se pudo actualizar el proveedor", "error inesperado", JOptionPane.ERROR_MESSAGE);

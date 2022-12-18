@@ -3,7 +3,7 @@ package Programa;
 
 import BD.GestionEntity;
 import BD.PiezasEntity;
-import Programa.Clases.Piezas;
+
 import Programa.Inicio.Gestion.GestionAnyadir;
 import Programa.Inicio.Piezas.EliminarModificarPieza;
 import Programa.Inicio.Piezas.ListaPiezas;
@@ -22,12 +22,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        //FALTA CONTROL DE ERRORES
-
-
 
         JFrame frame = new inicio();
         frame.setSize(700,600);
+        frame.setLocationRelativeTo(null);//ventana sale centrada
         frame.setVisible(true);
 
 

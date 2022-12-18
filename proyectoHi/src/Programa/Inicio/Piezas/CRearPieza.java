@@ -26,6 +26,7 @@ public class CRearPieza extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuPiezas();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();//para cerrar la ventana principal tras pulsar el boton
             }
@@ -52,7 +53,7 @@ public class CRearPieza extends JFrame{
 
                     sesion.getTransaction().commit();
                     sesion.close();
-                    JOptionPane.showMessageDialog(null, "añadido con exito", " inesperado", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "añadido con exito", " todo correcto", JOptionPane.INFORMATION_MESSAGE);
                 } catch (NumberFormatException ex) {
                     System.out.println("no se pudo añadir pieza");
                     JOptionPane.showMessageDialog(null, "error al añadir nueva pieza, asegurate de meter correctamente todos los valores", "error inesperado", JOptionPane.ERROR_MESSAGE);

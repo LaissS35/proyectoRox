@@ -24,6 +24,7 @@ public class ayuda extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new inicio();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }
@@ -33,6 +34,7 @@ public class ayuda extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuPiezas();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }
@@ -42,6 +44,7 @@ public class ayuda extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new MenuProyecto();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }
@@ -51,6 +54,7 @@ public class ayuda extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new menuProves();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }
@@ -60,6 +64,7 @@ public class ayuda extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new Gestion();//la otra ventana tiene extend jframe
                 frame.setSize(700,600);
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 dispose();
             }
