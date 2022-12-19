@@ -55,13 +55,11 @@ public class EliminarModificarPieza extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int posicion = comboBoxPiezas.getSelectedIndex();
 
-                //eliminar
-
                 try {
                     HibernateUtil.buildSessionFactory();
 
-                    String codigo="susu0";//seleccionar el codigo que se quiere editar
-                    Query query = HibernateUtil.getCurrentSession().createQuery("from PiezasEntity p where p.codigo = :barra");//los puntos deben ir enfrente del nuevo valoor, si no da error
+
+                    Query query = HibernateUtil.getCurrentSession().createQuery("from PiezasEntity p where p.codigo = :barra");
                     query.setParameter("barra",comboBoxPiezas.getItemAt(posicion));
                     PiezasEntity piezas = (PiezasEntity) query.uniqueResult();
 
